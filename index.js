@@ -98,5 +98,5 @@ const server = http.createServer((req, res) => {
 const port = process.env.PORT || 8000;
 
 server.listen(port, "127.0.0.1", () => {
-  console.log(`Listening to request on port 8000`);
+  console.log(`Listening to request on port ${port}`);
 });
