@@ -4,8 +4,8 @@
   "description": "agba js",
   "main": "index.js",
   "scripts": {
-    "starts": "nodemon index.js",
-    "start": "node index.js"
+    "start": "nodemon index.js",
+    "prod": "node index.js"
   },
   "author": "Azeez Abdulsalam",
   "license": "ISC",
