@@ -4,4 +4,4 @@ It checks the number of unconfirmed bitcoin transactions.
 It also checks the number of confirmed transaction for the past 24 hours.
 
 less
-It can be accessed at: https://t.me/hayzedSmartBot
+It can be accessed at: https://farm-products-hayzed.herokuapp.com/
