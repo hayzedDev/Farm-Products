@@ -1,0 +1,17 @@
+{
+  "name": "hayzed-node-farm",
+  "version": "1.0.0",
+  "description": "agba js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Azeez Abdulsalam",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "slugify": "^1.6.5"
+  }
+}
