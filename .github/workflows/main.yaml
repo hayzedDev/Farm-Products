@@ -10,11 +10,6 @@ jobs:
   deploy:
     runs-on: 'ubuntu-latest'
     steps:
-      - name: Print GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
       - name: executing remote ssh commands using key
         uses: appleboy/ssh-action@v1.0.0
         with:
