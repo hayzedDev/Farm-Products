@@ -18,4 +18,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_NEW_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            pwd
+            cd farm-project && git pull origin main || true && pm2 restart farm-project || pm2 start ecosystem.config.json
