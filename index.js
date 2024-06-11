@@ -1,9 +1,9 @@
 // core modules
 const fs = require(`fs`);
-const http = require("http");
+const http = require('http');
 
-const slugify = require("slugify");
-const url = require("url");
+const slugify = require('slugify');
+const url = require('url');
 
 // my own modules
 const replaceTemplate = require(`${__dirname}/modules/replaceTemplate`);
@@ -16,14 +16,14 @@ const replaceTemplate = require(`${__dirname}/modules/replaceTemplate`);
 
 let tempApi, tempCard, tempProduct, tempOverview;
 
-fs.readFile(`${__dirname}/dev-data/data.json`, "utf-8", (err, data) => {
+fs.readFile(`${__dirname}/dev-data/data.json`, 'utf-8', (err, data) => {
   tempApi = JSON.parse(data);
   //   console.log(JSON.parse(tempApi));
 });
 
 fs.readFile(
   `${__dirname}/templates/template-overview.html`,
-  "utf-8",
+  'utf-8',
   (err, data) => {
     tempOverview = data;
     // console.log(JSON.parse(tempOverview));
@@ -32,7 +32,7 @@ fs.readFile(
 
 fs.readFile(
   `${__dirname}/templates/template-card.html`,
-  "utf-8",
+  'utf-8',
   (err, data) => {
     tempCard = data;
     // console.log(JSON.parse(tempCard));
@@ -41,7 +41,7 @@ fs.readFile(
 
 fs.readFile(
   `${__dirname}/templates/template-product.html`,
-  "utf-8",
+  'utf-8',
   (err, data) => {
     tempProduct = data;
     //   console.log(JSON.parse(tempProduct));
@@ -58,37 +58,37 @@ const server = http.createServer((req, res) => {
   //   console.log(url.parse(req.url, true));
   const { pathname: pathName, query } = url.parse(req.url, true);
   //   Overview
-  if (pathName === "/overview" || pathName === "/") {
+  if (pathName === '/overview' || pathName === '/') {
     const cardsHTML = tempApi
       .map((cur, i) => {
         return replaceTemplate(tempCard, cur);
       })
-      .join("");
+      .join('');
 
-    res.writeHead(200, { "Content-Type": "text/html" });
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end(tempOverview.replace(/{%PRODUCT_CARDS%}/g, cardsHTML));
 
     // PRoduct page
-  } else if (pathName == "/product") {
+  } else if (pathName == '/product') {
     const product = [tempApi.at(query.id)]
       .map((cur) => {
         return replaceTemplate(tempProduct, cur);
       })
-      .join("");
+      .join('');
     // console.log(product);
-    res.writeHead(200, { "Content-Type": "text/html" });
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end(product);
 
     // APi page
-  } else if (pathName === "/api") {
-    res.writeHead(200, { "Content-Type": "application/json" });
+  } else if (pathName === '/api') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(tempApi);
 
     // Not found page
   } else {
     res.writeHead(404, {
-      "Content-Type": "text/html",
-      "my-own-header": "Hello-world",
+      'Content-Type': 'text/html',
+      'my-own-header': 'Hello-world',
     });
     res.end(`<h1>The page could not be found</h1>`);
   }

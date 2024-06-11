@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "farm-project",
-      "script": "node index.js"
+      "script": "npm install && node index.js"
     }
   ]
 }
