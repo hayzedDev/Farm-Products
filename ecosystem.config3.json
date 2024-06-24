@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name": "farm-project3",
+      "script": "cross-env PORT=8006 npm run prod"
+    }
+  ]
+}
